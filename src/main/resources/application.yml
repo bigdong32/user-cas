@@ -33,9 +33,6 @@ spring:
       filters: stat,wall,log4j
       # 通过connectProperties属性来打开mergeSql功能；慢SQL记录
       connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000
-# 下面为连接池的补充设置，应用到上面所有数据源中
-  jpa:
-    show-sql: true
 
 #mybatis
 mybatis-plus:
@@ -64,3 +61,6 @@ mybatis-plus:
   configuration:
     map-underscore-to-camel-case: true
     cache-enabled: false
+
+logging:
+  level: warn

@@ -1,13 +1,11 @@
 package com.wds.app.user.entity;
 
-import com.baomidou.mybatisplus.activerecord.Model;
-import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableName;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
 /**
  * 用户信息
@@ -17,12 +15,9 @@ import java.util.Date;
 @TableName(value = "user_info")
 @Setter
 @Getter
-public class UserInfo extends Model<UserInfo>{
+public class UserInfo extends SuperEntity<UserInfo>{
 
     private static final long serialVersionUID = 1109141237853117226L;
-
-    @TableId
-    private Long id;
 
     // 登录用户名
     private String name;
@@ -39,23 +34,19 @@ public class UserInfo extends Model<UserInfo>{
     // 电话
     private String phone;
 
-    // 创建时间
-    private Date createTime;
-
-    // 创建者
-    private String createBy;
-
-    // 修改时间
-    private Date modifyTime;
-
-    // 修改者
-    private String modifyBy;
-
-    // 是否删除
-    private Boolean isDeleted;
+    // 用户权限列表
+    @TableField(exist = false)
+    private List<UserRole> userRoles;
 
     @Override
-    protected Serializable pkVal() {
-        return this.id;
+    public String toString() {
+        return "UserInfo{" +
+                "name='" + name + '\'' +
+                ", nickName='" + nickName + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", phone='" + phone + '\'' +
+                ", userRoles=" + userRoles +
+                '}';
     }
 }

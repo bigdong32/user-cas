@@ -1,5 +1,6 @@
 package com.wds.app.user.service;
 
+import com.baomidou.mybatisplus.plugins.Page;
 import com.baomidou.mybatisplus.service.IService;
 import com.wds.app.user.entity.UserInfo;
 
@@ -10,4 +11,6 @@ import com.wds.app.user.entity.UserInfo;
  * @data 2017-08-10 16:36
  */
 public interface IUserInfoService extends IService<UserInfo>{
+
+    Page<UserInfo> getUserInfosByPage(Page<UserInfo> page);
 }
