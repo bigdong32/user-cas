@@ -1,6 +1,7 @@
 package com.wds.app.user.controller;
 
 import com.baomidou.mybatisplus.mapper.EntityWrapper;
+import com.baomidou.mybatisplus.plugins.Page;
 import com.wds.app.user.entity.UserInfo;
 import com.wds.app.user.service.IUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,14 @@ public class UserInfoController {
         List<UserInfo> userInfoList = iUserInfoService.selectList(null);
         userInfoList.forEach(userInfo1 -> {
             System.out.println(userInfo1.getName());
+        });
+    }
+
+    @RequestMapping("/getAllUserRole")
+    public void testUR(){
+        Page<UserInfo> page = iUserInfoService.getUserInfosByPage(new Page<UserInfo>(1, 3));
+        page.getRecords().forEach(userInfo -> {
+            System.out.println(userInfo.getId());
         });
     }
 }

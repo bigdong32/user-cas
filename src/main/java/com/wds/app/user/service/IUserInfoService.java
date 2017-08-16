@@ -13,4 +13,6 @@ import com.wds.app.user.entity.UserInfo;
 public interface IUserInfoService extends IService<UserInfo>{
 
     Page<UserInfo> getUserInfosByPage(Page<UserInfo> page);
+
+    Page<UserInfo> getUserInfoWithUserRolesByPage(Page<UserInfo> page);
 }

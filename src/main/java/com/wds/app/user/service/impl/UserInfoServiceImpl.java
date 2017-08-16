@@ -22,4 +22,10 @@ public class UserInfoServiceImpl extends ServiceImpl<UserInfoMapper, UserInfo> i
         page.setRecords(baseMapper.getUserInfosByPage(page));
         return page;
     }
+
+    @Override
+    public Page<UserInfo> getUserInfoWithUserRolesByPage(Page<UserInfo> page) {
+        page.setRecords(baseMapper.getUserInfoWithUserRolesByPage(page));
+        return page;
+    }
 }

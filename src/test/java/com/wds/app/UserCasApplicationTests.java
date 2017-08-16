@@ -39,4 +39,14 @@ public class UserCasApplicationTests {
 			System.out.println(userInfo);
 		});
 	}
+
+	@Test
+	public void testUR(){
+		Page<UserInfo> page = userInfoService.getUserInfoWithUserRolesByPage(new Page<>(1, 3));
+		page.getRecords().forEach(userInfo -> {
+			userInfo.getUserRoles().forEach(userRole -> {
+				System.out.println(userRole);
+			});
+		});
+	}
 }

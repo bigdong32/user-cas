@@ -19,4 +19,11 @@ public class UserRole extends SuperEntity<UserRole>{
 
     // 角色名
     private String name;
+
+    @Override
+    public String toString() {
+        return "UserRole{" +
+                "name='" + name + '\'' +
+                '}';
+    }
 }
