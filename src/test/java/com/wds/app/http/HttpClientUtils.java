@@ -41,7 +41,7 @@ public class HttpClientUtils {
 
     // 连接超时时间:5秒
     private static final int CONNECTION_TIME_OUT = 5000;
-    // 连接超时时间:30秒
+    // 数据读取超时时间:30秒
     private static final int SOCKET_TIME_OUT = 30000;
 
     private static final HttpClient HTTP_CLIENT;
