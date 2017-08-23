@@ -1,4 +1,4 @@
-package com.wds.app;
+package com.wds.app.concurrent;
 
 import com.google.common.collect.Lists;
 import com.google.common.util.concurrent.*;

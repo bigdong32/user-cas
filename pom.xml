@@ -90,6 +90,18 @@
 		</dependency>
 		<!-- shiro end-->
 
+		<!-- apache http -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+		<!-- apache common -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+
 		<!-- JUnit test dependency -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
