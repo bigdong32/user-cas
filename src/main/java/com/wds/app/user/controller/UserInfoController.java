@@ -1,13 +1,16 @@
 package com.wds.app.user.controller;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
 import com.wds.app.user.entity.UserInfo;
+import com.wds.app.user.entity.quartz.ScheduleJob;
+import com.wds.app.user.handler.QuartzHandler;
+import com.wds.app.user.jobs.TestJob;
 import com.wds.app.user.service.IUserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -21,6 +24,9 @@ public class UserInfoController {
 
     @Autowired
     private IUserInfoService iUserInfoService;
+
+    @Resource
+    private QuartzHandler quartzHandler;
 
     @RequestMapping("/getAll")
     public void testU(){
@@ -42,5 +48,11 @@ public class UserInfoController {
         page.getRecords().forEach(userInfo -> {
             System.out.println(userInfo.getId());
         });
+    }
+
+    @RequestMapping("/testQuartz")
+    public void testQuartz(){
+        ScheduleJob scheduleJob = new ScheduleJob("jobId-0", "jobName-0", ScheduleJob.DEFAULT_JOB_GROUP, "0/5 * * * * ?", "haha");
+        System.out.println(quartzHandler.addJob(scheduleJob, TestJob.class).toString());
     }
 }
