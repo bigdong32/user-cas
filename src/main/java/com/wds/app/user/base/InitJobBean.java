@@ -3,9 +3,7 @@ package com.wds.app.user.base;
 import com.wds.app.user.entity.quartz.ScheduleJob;
 import com.wds.app.user.handler.QuartzHandler;
 import com.wds.app.user.jobs.TestJob;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.InitializingBean;
-import org.springframework.beans.factory.config.BeanPostProcessor;
 
 import javax.annotation.Resource;
 
