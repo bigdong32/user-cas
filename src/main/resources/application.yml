@@ -63,4 +63,4 @@ mybatis-plus:
     cache-enabled: false
 
 logging:
-  level: warn
+  level: debug

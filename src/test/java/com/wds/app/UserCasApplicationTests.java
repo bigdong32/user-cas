@@ -1,7 +1,7 @@
 package com.wds.app;
 
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
+import com.wds.app.user.entity.UserHaha;
 import com.wds.app.user.entity.UserInfo;
 import com.wds.app.user.service.IUserInfoService;
 import org.junit.Test;
@@ -26,7 +26,8 @@ public class UserCasApplicationTests {
 	@Test
 	public void testMybatisPage(){
 		UserInfo userInfo = new UserInfo();
-		List<UserInfo> userInfos = userInfo.selectPage(new Page<UserInfo>(1, 10), new EntityWrapper<UserInfo>().eq("name", "wds")).getRecords();
+//		List<UserInfo> userInfos = userInfo.selectPage(new Page<UserInfo>(1, 10), new EntityWrapper<UserInfo>().eq("name", "wds")).getRecords();
+		List<UserInfo> userInfos = userInfo.selectAll();
 		userInfos.forEach(temUserInfo -> {
 			System.out.println(temUserInfo.getEmail());
 		});
@@ -47,6 +48,15 @@ public class UserCasApplicationTests {
 			userInfo.getUserRoles().forEach(userRole -> {
 				System.out.println(userRole);
 			});
+		});
+	}
+
+	@Test
+	public void testTimeTest(){
+		UserHaha userHaha = new UserHaha();
+		List<UserHaha> timeTests = userHaha.selectAll();
+		timeTests.forEach(s -> {
+			System.out.println(s.getId() + "  " + s.getCreateTime());
 		});
 	}
 
